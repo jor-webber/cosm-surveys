@@ -1,8 +1,8 @@
 <template>
-        <div class="scale-headline">
-            <v-card-subtitle>{{ questions.scale }}</v-card-subtitle>
-            <v-divider></v-divider>
-        </div>
+    <div class="scale-headline">
+        <v-card-subtitle>{{ questions.scale }}</v-card-subtitle>
+        <v-divider></v-divider>
+    </div>
     <question-item v-for="questionItem in questions.questionSet" :key="questionItem.id" :question="questionItem"
         @get-score="calculateBlockScore" />
 </template>
@@ -26,11 +26,11 @@ export default {
             this.prevScore = this.blockScore;
             this.blockScore -= questionScore.prevScore;
             this.blockScore += questionScore.newScore;
-            console.log(this.blockScore);
-            this.$emit("get-score", {
-                prevScore: this.prevScore,
-                newScore: this.blockScore,
-            });
+            console.log("Blockscore: " + this.blockScore);
+            // this.$emit("get-score", {
+            //     prevScore: this.prevScore,
+            //     newScore: this.blockScore,
+            // });
         },
     },
 };

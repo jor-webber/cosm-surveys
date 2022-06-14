@@ -1,10 +1,12 @@
 <template>
   <div>
     <v-card elevation="2" class="pa-5 card" shaped>
-      <v-card-text class="pb-0">Over the last 3 months, did you...</v-card-text>
-      <v-card-title class="pt-1 title">{{ question.query }}</v-card-title>
-      <v-radio-group class="smaller-radio darker-text" hide-details="auto">
-        <v-radio name="test" @click="handleYesNoSelection" value="n">
+      <div class="question-heading">
+        <v-card-text class="pb-0">Over the last 3 months, did you...</v-card-text>
+        <v-card-title class="pt-1 title">{{ question.query }}</v-card-title>
+      </div>
+      <v-radio-group class="smaller-radio radio-text" hide-details="auto">
+        <v-radio class="radioRow" name="test" @click="handleYesNoSelection" value="n">
           <template v-slot:label>
             <div><strong>No</strong>, I don't have this symptom.</div>
           </template>
@@ -18,8 +20,7 @@
       <v-card-title v-if="yesSelected" class="smaller-title">And it bothers me...</v-card-title>
       <v-slide-x-transition>
         <div v-if="yesSelected">
-          <!-- If none of these radios are selected, the 'No' radio must be selected and therefore score value = 0 -->
-          <v-radio-group class="smaller-radio darker-text" hide-details="auto" v-model="score">
+          <v-radio-group class="smaller-radio radio-text" hide-details="auto" v-model="score">
             <v-radio label="Not at all" :value="1" />
             <v-radio label="Somewhat" :value="2" />
             <v-radio label="Moderately" :value="3" />
@@ -33,7 +34,8 @@
 
 <script>
 export default {
-  props: ["question"],
+  props: ["question", "scale"],
+  emits: ['get-score'],
   data() {
     return {
       score: 0,
@@ -51,10 +53,8 @@ export default {
   },
   methods: {
     handleYesNoSelection(event) {
-      if (event.target.value == "y") {
-        this.yesSelected = true;
-        return;
-      }
+      if (event.target.value === "y")
+        return this.yesSelected = true;
       this.score = 0;
       this.yesSelected = false;
     }
@@ -76,14 +76,25 @@ export default {
 }
 
 .card {
+  background-color: white;
   border-radius: 15px;
   box-shadow: 0px 4px 4px 0px #00000040;
   color: #2c2c2c;
 }
 
-.darker-text {
-  color: black !important;
-  opacity: 1 !important;
+.v-selection-control {
+  color: #464646;
+}
 
+.v-selection-control:hover {
+  background-color: #f8f8f8;
+  border-radius: 15px;
+  color: #464646;
+}
+
+.question-heading {
+  background-color: #f8f8f8;
+  border-radius: 15px;
+  margin-bottom: 15px;
 }
 </style>

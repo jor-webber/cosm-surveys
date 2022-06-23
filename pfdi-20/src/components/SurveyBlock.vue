@@ -28,6 +28,7 @@ export default {
          * @param {*} questionScore - Object containing the root question's previous value, current value, and scale
          */
         calculateBlockScore(questionScore) {
+            this.prevScore = this.score;
             this.score -= questionScore.prevScore;
             this.score += questionScore.newScore;
             console.log(`Blockscore for ${this.scaleName}: ${this.score}`);

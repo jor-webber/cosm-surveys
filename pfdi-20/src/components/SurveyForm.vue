@@ -7,7 +7,7 @@
       <v-card-subtitle>
         These results are separated into three scale values, followed by your PFDI-20 summary score below.
       </v-card-subtitle>
-      <v-table density="comfortable" class="mt-5 mb-5 results-table">
+      <v-table density="comfortable" class="mt-5 mb-5">
         <thead>
           <tr>
             <th class="text-h6">
@@ -250,9 +250,5 @@ form {
 
 .summary-row {
   font-weight: bold;
-}
-
-.results-table {
-  background-color: #f8f8f8;
 }
 </style>

@@ -1,20 +1,21 @@
 <template>
-  <v-app-bar color="grey-lighten-2">
-    <v-toolbar-title>
-      <span class="headline">Title</span>
-    </v-toolbar-title>
-    <v-spacer></v-spacer>
-    <v-toolbar-items>
-      <v-btn icon href="#" color="grey-lighten-2"><v-icon color="black">mdi-account</v-icon></v-btn>
-      <v-btn icon href="#" color="grey-lighten-2"><v-icon color="black">mdi-magnify</v-icon></v-btn>
-    </v-toolbar-items>
-  </v-app-bar>
+  <div>
+    <p class="text-h4 text-center">
+      Pelvic Floor Impact Questionnaire - Short Form 7(PFIQ-7)
+    </p>
+    <p class="text-body-1 text-center">
+      Instructions: Some women find that bladder, bowel, or vaginal symptoms
+      affect their activities, relationships, and feelings. For each question,
+      check the response that best describes how much your activities,
+      relationships, or feelings have been affected by your bladder, bowel and
+      vaginal / pelvic symptoms or conditions over the last 3 months. Please be
+      sure to mark an answer in all 3 columns for each question.
+    </p>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
